@@ -1,6 +1,6 @@
 <hello name="{{ name }}"></hello>
 <p>Start editing to see some magic happen :)</p>
-<div class="btn-group" dropdown>
+<div class="btn-group" dropdown (onHidden)="onHidden()">
   <button
     id="button-basic"
     dropdownToggle
@@ -17,16 +17,8 @@
     role="menu"
     aria-labelledby="button-basic"
   >
-    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-    <li role="menuitem">
-      <a class="dropdown-item" href="#">Another action</a>
-    </li>
-    <li role="menuitem">
-      <a class="dropdown-item" href="#">Something else here</a>
-    </li>
-    <li class="divider dropdown-divider"></li>
-    <li role="menuitem">
-      <a class="dropdown-item" href="#">Separated link</a>
+    <li role="menuitem" *ngFor="let progress of appService.getListeProgress()">
+      <a class="dropdown-item" href="#">{{ progress.lib }}</a>
     </li>
   </ul>
 </div>
